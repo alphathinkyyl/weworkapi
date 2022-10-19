@@ -1,0 +1,25 @@
+{
+  "name": "yu-yanli/weworkapi",
+  "license": "MIT",
+  "description": "",
+  "authors": [
+    {
+      "name": "yu-yanli",
+      "email": "603447409@qq.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "alphathinkyyl\\WeWorkApi\\": "src/"
+    }
+  },
+  "require": {
+    "ext-libxml": "*",
+    "ext-json": "*",
+    "ext-simplexml": "*",
+    "ext-dom": "*",
+    "ext-curl": "*",
+    "ext-openssl": "*",
+    "ext-redis": "*"
+  }
+}
