@@ -4,7 +4,7 @@
 - 原始项目: [https://github.com/cium1/weworkapi](https://github.com/cium1/weworkapi) 
 - 安装方式:
 ```
-composer require yu-yanli/weworkapi/weworkapi
+composer require alphathinkyyl/weworkapi
 ```
 - Director
 ```
