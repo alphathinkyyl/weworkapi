@@ -19,7 +19,7 @@ class MiniProgramNoticeMessage
     //消息标题，长度限制4-12个汉字（支持id转译）
     public $title = '';
     //消息描述，长度限制4-12个汉字（支持id转译）
-    public $description = '';
+    public $description = null;
     //是否放大第一个content_item
     public $emphasis_first_item = true;
     //消息内容键值对，最多允许10个item
