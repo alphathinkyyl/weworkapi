@@ -897,18 +897,25 @@ class CorpAPI extends API
         self::_HttpCall(self::MESSAGE_SEND, 'POST', $args);
 
         $invalidUserIdList_string = Utils::arrayGet($this->rspJson, "invaliduser");
-        $invalidUserIdList = explode('|', $invalidUserIdList_string);
-
-        $invalidPartyIdList_string = Utils::arrayGet($this->rspJson, "invalidparty");
-        $temp = explode('|', $invalidPartyIdList_string);
-        foreach ($temp as $item) {
-            $invalidPartyIdList[] = intval($item);
+        $invalidUserIdList = [];
+        if (strpos($invalidUserIdList_string, '|') !== false) {
+            $invalidUserIdList = explode('|', $invalidUserIdList_string);
         }
-
+        $invalidPartyIdList_string = Utils::arrayGet($this->rspJson, "invalidparty");
+        $invalidPartyIdList = [];
+        if (strpos($invalidPartyIdList_string, '|') !== false) {
+            $temp = explode('|', $invalidPartyIdList_string);
+            foreach ($temp as $item) {
+                $invalidPartyIdList[] = intval($item);
+            }
+        }
         $invalidTagIdList_string = Utils::arrayGet($this->rspJson, "invalidtag");
-        $temp = explode('|', $invalidTagIdList_string);
-        foreach ($temp as $item) {
-            $invalidTagIdList[] = intval($item);
+        $invalidTagIdList=[];
+        if (strpos($invalidTagIdList_string, '|') !== false) {
+            $temp = explode('|', $invalidTagIdList_string);
+            foreach ($temp as $item) {
+                $invalidTagIdList[] = intval($item);
+            }
         }
     }
 
@@ -1023,7 +1030,7 @@ class CorpAPI extends API
         if (class_exists('\CURLFile')) {
             $args = array('media' => new \CURLFile(realpath($filePath), 'application/octet-stream', basename($filePath)));
         } else {
-            $args = array('media' => '@' . $filePath);//realpath($filePath));
+            $args = array('media' => '@' . $filePath); //realpath($filePath));
         }
 
         var_dump($args);
