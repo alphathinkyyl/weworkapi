@@ -13,7 +13,7 @@ use alphathinkyyl\WeWorkApi\utils\Utils;
 class TextMessageContent
 {
     public $msgtype = "text";
-    private $content = null; // string
+    public $content = null; // string
 
     /**
      * TextMessageContent constructor.

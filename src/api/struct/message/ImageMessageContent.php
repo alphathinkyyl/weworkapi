@@ -13,7 +13,7 @@ use alphathinkyyl\WeWorkApi\utils\Utils;
 class ImageMessageContent
 {
     public $msgtype = "image";
-    private $media_id = null; // string
+    public $media_id = null; // string
 
     /**
      * ImageMessageContent constructor.
