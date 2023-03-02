@@ -105,19 +105,20 @@ class CorpAPI extends API
         if (!Utils::notEmptyStr($this->corpId) || !Utils::notEmptyStr($this->secret)) {
             throw new ParameterError("invalid corpid or secret");
         }
+        $cacheKey=$this->corpId.'-'.$this->secret;
         $redis = Redis::getInstance([
             'host'     => $this->redis->host,
             'port'     => $this->redis->port,
             'timeout'  => $this->redis->timeout,
             'password' => $this->redis->password,
         ]);
-        if (!$redis->exists($this->corpId)) {
+        if (!$redis->exists($cacheKey)) {
             $url = HttpUtils::MakeUrl("/cgi-bin/gettoken?corpid={$this->corpId}&corpsecret={$this->secret}");
             $this->_HttpGetParseToJson($url, false);
             $this->_CheckErrCode();
-            $redis->set($this->corpId, $this->rspJson["access_token"], $this->rspJson['expires_in']);
+            $redis->set($cacheKey, $this->rspJson["access_token"], $this->rspJson['expires_in']);
         }
-        $this->accessToken = $redis->get($this->corpId);
+        $this->accessToken = $redis->get($cacheKey);
         //$this->accessToken = $this->rspJson["access_token"];
     }
 
