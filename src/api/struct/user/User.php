@@ -23,7 +23,7 @@ class User
     public $gender = null;          // uint [bug]
     public $email = null;           // string
     public $telephone = null;       // string
-    public $isleader = null;        // uint
+    public $isleader = null;        // uint array
     public $avatar_mediaid = null;  // string
     public $enable = null;          // uint
     public $extattr = null;         // ExtattrList
@@ -48,7 +48,7 @@ class User
         $user->gender = Utils::arrayGet($arr, "gender");
         $user->email = Utils::arrayGet($arr, "email");
         $user->telephone = Utils::arrayGet($arr, "telephone");
-        $user->isleader = Utils::arrayGet($arr, "isleader");
+        $user->isleader = Utils::arrayGet($arr, "is_leader_in_dept");
         $user->avatar_mediaid = Utils::arrayGet($arr, "avatar_mediaid");
         $user->enable = Utils::arrayGet($arr, "enable");
         $user->status = Utils::arrayGet($arr, "status");
