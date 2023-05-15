@@ -3,9 +3,9 @@
  * @Author: yuyanli 603447409@qq.com
  * @Date: 2022-10-19 11:12:12
  * @LastEditors: yuyanli 603447409@qq.com
- * @LastEditTime: 2023-02-01 09:36:36
+ * @LastEditTime: 2023-02-01 14:44:08
  * @FilePath: \weworkapi\src\api\struct\message\VoiceMessageContent.php
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE 
  */
 /**
  * Author:  Yejia

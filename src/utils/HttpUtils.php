@@ -39,21 +39,23 @@ class HttpUtils
         $is_list = false;
         $keys = array_keys($arr);
         $max_length = count($arr) - 1;
-        if (($keys [0] === 0) && ($keys [$max_length] === $max_length)) {
-            $is_list = true;
-            for ($i = 0; $i < count($keys); $i++) {
-                if ($i != $keys [$i]) {
-                    $is_list = false;
-                    break;
+        if (is_array($keys) && count($keys) > 0) {
+            if (($keys[0] === 0) && ($keys[$max_length] === $max_length)) {
+                $is_list = true;
+                for ($i = 0; $i < count($keys); $i++) {
+                    if ($i != $keys[$i]) {
+                        $is_list = false;
+                        break;
+                    }
                 }
             }
         }
         foreach ($arr as $key => $value) {
             if (is_array($value)) {
                 if ($is_list)
-                    $parts [] = self::array2Json($value);
+                    $parts[] = self::array2Json($value);
                 else
-                    $parts [] = '"' . $key . '":' . self::array2Json($value);
+                    $parts[] = '"' . $key . '":' . self::array2Json($value);
             } else {
                 $str = '';
                 if (!$is_list)

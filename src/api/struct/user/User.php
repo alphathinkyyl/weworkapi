@@ -23,7 +23,8 @@ class User
     public $gender = null;          // uint [bug]
     public $email = null;           // string
     public $telephone = null;       // string
-    public $isleader = null;        // uint array
+    public $isleader = null;        // uint
+    public $is_leader_in_dept=null; //uint array
     public $direct_leader=null;     // uint array
     public $avatar_mediaid = null;  // string
     public $enable = null;          // uint
@@ -49,7 +50,8 @@ class User
         $user->gender = Utils::arrayGet($arr, "gender");
         $user->email = Utils::arrayGet($arr, "email");
         $user->telephone = Utils::arrayGet($arr, "telephone");
-        $user->isleader = Utils::arrayGet($arr, "is_leader_in_dept");
+        $user->isleader = Utils::arrayGet($arr, "isleader");
+        $user->is_leader_in_dept = Utils::arrayGet($arr, "is_leader_in_dept");
         $user->direct_leader=Utils::arrayGet($arr, "direct_leader");
         $user->avatar_mediaid = Utils::arrayGet($arr, "avatar_mediaid");
         $user->enable = Utils::arrayGet($arr, "enable");
